@@ -1,27 +1,27 @@
 package org.example;
 
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
-        Emprestimo e = new Emprestimo();
 
-        Livro l1 = new Livro(1);
+        Scanner entrada = new Scanner (System.in);
+        int[] codigos= {0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+        System.out.print("Digite o RA do Aluno: ");
+        String aluno = entrada.nextLine();
+        System.out.print("Digite o número de Livros a ser Emprestado: ");
+        int num = entrada.nextInt();
+        int aux;
 
-        Livro l2 = new Livro(2);
+        for(int i=0;i<num;i++) {
+            System.out.print("Digite o codigo do livro" + (i+1) + ": ");
+            aux=entrada.nextInt();
+            codigos[i]=aux;
+        }
 
-        Livro l3 = new Livro(3);
-
-        Item i1 = new Item(l1);
-        Item i2 = new Item(l2);
-        Item i3 = new Item(l3);
-        e.i.add(i1);
-        e.i.add(i2);
-        e.i.add(i3);
-
-
-        System.out.print("Data de Emprestimo: " + e.getDataEmprestimo());
-        System.out.print("\nData de Devolução: " + e.CalculaDataDevolucao());
-
+        Controle c = new Controle();
+        c.emprestar(aluno, codigos, num);
     }
 
 }
