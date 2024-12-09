@@ -13,6 +13,14 @@ public class Mocks {
         return new Livro(code);
     }
 
+    public List<Livro> createBookList(int quantity) {
+        List<Livro> books = new ArrayList<>();
+        for (int i = 1; i <= quantity; i++) {
+            books.add(createBook(i));
+        }
+        return books;
+    }
+
     public List<Item> createItemList(int quantity) {
         List<Item> items = new ArrayList<>();
         for (int i = 1; i <= quantity; i++) {
