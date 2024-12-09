@@ -17,7 +17,7 @@ public class EmprestimoTest {
         int numberOfBooks = 5;
         List<Item> items = mocks.createItemList(numberOfBooks);
         Emprestimo emprestimo = new Emprestimo();
-        emprestimo.i = items;
+        emprestimo.item = items;
 
         Date result = emprestimo.CalculaDataDevolucao();
 
@@ -29,7 +29,7 @@ public class EmprestimoTest {
         int numberOfBooks = 1;
         List<Item> items = mocks.createItemList(numberOfBooks);
         Emprestimo emprestimo = new Emprestimo();
-        emprestimo.i = items;
+        emprestimo.item = items;
         Date expected = mocks.getDate(numberOfBooks + 1);
 
         Date result = emprestimo.CalculaDataDevolucao();
@@ -42,7 +42,7 @@ public class EmprestimoTest {
         int numberOfBooks = 2;
         List<Item> items = mocks.createItemList(numberOfBooks);
         Emprestimo emprestimo = new Emprestimo();
-        emprestimo.i = items;
+        emprestimo.item = items;
         Date expected = mocks.getDate(numberOfBooks + 1);
 
         Date result = emprestimo.CalculaDataDevolucao();
@@ -56,7 +56,7 @@ public class EmprestimoTest {
         int additionalDays = (numberOfBooks-2) * 2;
         List<Item> items = mocks.createItemList(numberOfBooks);
         Emprestimo emprestimo = new Emprestimo();
-        emprestimo.i = items;
+        emprestimo.item = items;
         Date expected = mocks.getDate(numberOfBooks + additionalDays + 1);
 
         Date result = emprestimo.CalculaDataDevolucao();
@@ -70,7 +70,7 @@ public class EmprestimoTest {
         int additionalDays = (numberOfBooks-2) * 2;
         List<Item> items = mocks.createItemList(numberOfBooks);
         Emprestimo emprestimo = new Emprestimo();
-        emprestimo.i = items;
+        emprestimo.item = items;
         Date expected = mocks.getDate(numberOfBooks + additionalDays + 1);
 
         Date result = emprestimo.CalculaDataDevolucao();
