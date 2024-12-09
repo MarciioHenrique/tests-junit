@@ -19,6 +19,11 @@ public class Controle {
             retorno = false;
         }
 
+        if (num > 5) {
+            System.out.println("Numero de Livros excedido");
+            retorno = false;
+        }
+
         if(retorno) {
             List<Livro> livros = new ArrayList<Livro>();
 	        for(int i=0; i< num;i++) {
