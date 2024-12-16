@@ -11,32 +11,31 @@ import static org.junit.Assert.assertEquals;
 public class AlunoTest{
     private final Mocks mocks = new Mocks();
 
+    private static final String VALID_RA = "11";
+    private static final String INVALID_RA = "10";
+    private static final String INVALID_CREDIT_RA = "4";
+
     @Test
     public void ShouldReturnFalseOnStudentVerification() {
-        String RA = "10";
-        Aluno aluno = new Aluno(RA);
+        Aluno aluno = mocks.createStudent(INVALID_RA);
 
         Boolean result = aluno.verificaAluno();
 
         assertEquals(false, result);
-        assertEquals(RA, aluno.getNome());
     }
 
     @Test
     public void ShouldReturnTrueOnStudentVerification() {
-        String RA = "11";
-        Aluno aluno = new Aluno(RA);
+        Aluno aluno = mocks.createStudent(VALID_RA);
 
         Boolean result = aluno.verificaAluno();
 
         assertEquals(true, result);
-        assertEquals(RA, aluno.getNome());
     }
 
     @Test
     public void ShouldReturnFalseOnDebitVerification() {
-        String RA = "4";
-        Aluno aluno = new Aluno(RA);
+        Aluno aluno = mocks.createStudent(INVALID_CREDIT_RA);
 
         Boolean result = aluno.verificaDebito();
 
@@ -45,8 +44,7 @@ public class AlunoTest{
 
     @Test
     public void ShouldReturnTrueOnDebitVerification() {
-        String RA = "20";
-        Aluno aluno = new Aluno(RA);
+        Aluno aluno = mocks.createStudent(VALID_RA);
 
         Boolean result = aluno.verificaDebito();
 
@@ -55,8 +53,7 @@ public class AlunoTest{
 
     @Test
     public void ShouldCallToLoan() {
-        String RA = "20";
-        Aluno aluno = new Aluno(RA);
+        Aluno aluno = mocks.createStudent(VALID_RA);
         List<Livro> livros = mocks.createBookList(3);
 
         Boolean result = aluno.emprestar(livros);

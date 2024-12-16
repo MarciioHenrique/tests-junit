@@ -2,6 +2,7 @@ package resources;
 
 import org.example.Item;
 import org.example.Livro;
+import org.example.Aluno;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -34,5 +35,9 @@ public class Mocks {
         calendar.setTime(new Date());
         calendar.add(Calendar.DATE, plusDays);
         return calendar.getTime();
+    }
+
+    public Aluno createStudent(String ra) {
+        return new Aluno(ra);
     }
 }
